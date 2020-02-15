@@ -1,0 +1,29 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: development
+# Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_POS_URL:jdbc:postgresql://localhost:5432/pos?createDatabaseIfNotExist=true}
+    username: ${DB_POS_USERNAME:condominio-acme}
+    password: ${DB_POS_PASSWORD:condominio-acme}
+    
+# JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: false
+    
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: ERROR
+    org.hibernate: ERROR

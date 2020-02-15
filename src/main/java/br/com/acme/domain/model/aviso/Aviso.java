@@ -19,10 +19,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @author carlosfilho
- *
- */
 @Entity
 @Getter
 @Setter
@@ -30,15 +26,15 @@ import lombok.Setter;
 @EqualsAndHashCode
 @Table(name = "tb_avisos")
 public class Aviso implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String descricaoAviso;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_condominio")
-	private Condominio condominoAvisos;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String descricaoAviso;
+
+    @ManyToOne
+    @JoinColumn(name = "id_condominio")
+    private Condominio condominoAvisos;
 }

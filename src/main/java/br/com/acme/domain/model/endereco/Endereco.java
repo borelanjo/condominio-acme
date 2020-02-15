@@ -31,19 +31,19 @@ import lombok.Setter;
 @EqualsAndHashCode
 @Table(name = "tb_endereco")
 public class Endereco implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String cidade;
-	
-	private String rua;
-	
-	private String cep;
-	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "id_condominio")
-	private Condominio condominioEndereco;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String cidade;
+
+    private String rua;
+
+    private String cep;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id_condominio")
+    private Condominio condominioEndereco;
 }
