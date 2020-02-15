@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  #############################################################
+  ######################### DATABASES #########################
+  #############################################################
+
+  db-pos-web:
+    container_name: db-condominio-acme
+    image: postgres:12
+    restart: always
+    hostname: db-pos
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: condominio-acme
+      POSTGRES_USER: condominio-acme
+      POSTGRES_PASSWORD: condominio-acme
+      PGDATA: /tmp
+    volumes:
+      - ./docker/postgres/data-condominio-acme:/var/lib/postgresql/data
