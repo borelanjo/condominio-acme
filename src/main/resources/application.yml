@@ -6,14 +6,14 @@ spring:
 # Database
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${DB_POS_URL:jdbc:postgresql://localhost:5432/pos?createDatabaseIfNotExist=true}
+    url: ${DB_POS_URL:jdbc:postgresql://localhost:5432/condominio-acme?createDatabaseIfNotExist=true}
     username: ${DB_POS_USERNAME:condominio-acme}
     password: ${DB_POS_PASSWORD:condominio-acme}
     
 # JPA properties
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
