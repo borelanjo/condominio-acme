@@ -6,7 +6,7 @@ services:
   ######################### DATABASES #########################
   #############################################################
 
-  db-pos-web:
+  db-condominio-acme:
     container_name: db-condominio-acme
     image: postgres:12
     restart: always
