@@ -3,19 +3,16 @@
  */
 package br.com.acme.domain.model.condominio;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.acme.domain.model.aviso.Aviso;
 import br.com.acme.domain.model.multa.Multa;
+import br.com.acme.domain.shared.BaseEntity;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,14 +22,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @Table(name = "tb_condominio")
-public class Condominio implements Serializable {
+public class Condominio extends BaseEntity {
     private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     private String nome;
 
