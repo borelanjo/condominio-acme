@@ -5,13 +5,12 @@ package br.com.acme.domain.model.condominio;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.acme.domain.model.aviso.Aviso;
-import br.com.acme.domain.model.multa.Multa;
+import br.com.acme.domain.model.avisocondominio.AvisoCondominio;
+import br.com.acme.domain.model.unidade.Unidade;
 import br.com.acme.domain.shared.BaseEntity;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -23,7 +22,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @EqualsAndHashCode(callSuper = false)
-@Table(name = "tb_condominio")
+@Table(name = "t_condominio")
 public class Condominio extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
@@ -33,10 +32,10 @@ public class Condominio extends BaseEntity {
 
     private String telefone;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "condominoMulta")
-    private Set<Multa> multasAplicadas;
+    @OneToMany(mappedBy = "condominio")
+    private Set<Unidade> unidades;
 
-    @OneToMany
-    private Set<Aviso> avisos;
+    @OneToMany(mappedBy = "condominio")
+    private Set<AvisoCondominio> avisos;
 
 }
