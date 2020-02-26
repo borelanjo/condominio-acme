@@ -12,16 +12,16 @@ import javax.persistence.Table;
 import br.com.acme.domain.model.avisocondominio.AvisoCondominio;
 import br.com.acme.domain.model.unidade.Unidade;
 import br.com.acme.domain.shared.BaseEntity;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Builder
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 @Table(name = "t_condominio")
 public class Condominio extends BaseEntity {
     private static final long serialVersionUID = 1L;

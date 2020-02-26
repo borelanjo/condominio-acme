@@ -46,3 +46,14 @@ ALTER TABLE public.t_aviso_unidade ADD CONSTRAINT fk_avisos_unidade_unidade_id F
 
 ALTER TABLE public.t_unidade ADD CONSTRAINT fk_unidade_condominio_id FOREIGN KEY (id_condominio) REFERENCES t_condominio(id);
 ALTER TABLE public.t_multa ADD CONSTRAINT fk_multa_unidade_id FOREIGN KEY (id_unidade) REFERENCES t_unidade(id);
+
+
+-- DROP SEQUENCE public.hibernate_sequence;
+
+CREATE SEQUENCE public.hibernate_sequence
+  INCREMENT BY 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1
+  NO CYCLE;
