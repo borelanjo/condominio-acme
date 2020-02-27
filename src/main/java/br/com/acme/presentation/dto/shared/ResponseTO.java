@@ -1,8 +1,10 @@
-package br.com.acme.presentation.dto;
+package br.com.acme.presentation.dto.shared;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.hateoas.Link;
 
 public final class ResponseTO<T> implements Serializable {
 
@@ -12,7 +14,7 @@ public final class ResponseTO<T> implements Serializable {
 
     private List<String> errors = new ArrayList<>();
 
-    private List<String> links = new ArrayList<>();
+    private List<Link> links = new ArrayList<>();
 
     public ResponseTO() {
     }
@@ -21,7 +23,7 @@ public final class ResponseTO<T> implements Serializable {
         this.data = data;
     }
 
-    public ResponseTO(T data, List<String> links) {
+    public ResponseTO(T data, List<Link> links) {
         super();
         this.data = data;
         this.links = links;
@@ -40,7 +42,7 @@ public final class ResponseTO<T> implements Serializable {
         return errors;
     }
 
-    public List<String> getLinks() {
+    public List<Link> getLinks() {
         return links;
     }
 
@@ -52,7 +54,7 @@ public final class ResponseTO<T> implements Serializable {
         this.errors = errors;
     }
 
-    public void setLinks(List<String> links) {
+    public void setLinks(List<Link> links) {
         this.links = links;
     }
 
