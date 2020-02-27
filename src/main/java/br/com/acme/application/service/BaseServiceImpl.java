@@ -2,7 +2,6 @@ package br.com.acme.application.service;
 
 import java.util.Optional;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -12,6 +11,7 @@ import br.com.acme.application.service.exception.InformationNotFoundException;
 import br.com.acme.domain.service.BaseService;
 import br.com.acme.domain.shared.BaseEntity;
 import br.com.acme.infrastructure.persistance.hibernate.repository.BaseRepository;
+import br.com.acme.infrastructure.util.BeanUtils;
 
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
 
