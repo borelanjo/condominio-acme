@@ -17,3 +17,7 @@ Deve ser utilizado as seguintes tecnologias
 - Postgres.
 
 - Relacionamentos: @OneToMany/@ManyToOne, 
+
+## Documentação
+
+https://documenter.getpostman.com/view/513916/SzKZtGPZ?version=latest
