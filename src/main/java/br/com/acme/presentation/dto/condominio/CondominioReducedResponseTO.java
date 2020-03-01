@@ -12,8 +12,6 @@ public class CondominioReducedResponseTO extends HateosLinkTO implements Seriali
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
-    
     private String nome;
 
 }
