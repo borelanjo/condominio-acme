@@ -23,20 +23,8 @@ public class LinkBuilder {
         return this;
     }
     
-    public LinkBuilder addGetSelf() {
-        links.add(linkTo(controllerClass).withSelfRel().withType("GET"));
-        return this;
-    }
-    
     public LinkBuilder addSelf(Long id) {
         links.add(linkTo(controllerClass).slash(id).withSelfRel());
-        return this;
-    }
-    
-    public LinkBuilder addCrudSelf(Long id) {
-        links.add(linkTo(controllerClass).slash(id).withSelfRel().withType("GET"));
-        links.add(linkTo(controllerClass).slash(id).withSelfRel().withType("PUT"));
-        links.add(linkTo(controllerClass).slash(id).withSelfRel().withType("DELETE"));
         return this;
     }
     

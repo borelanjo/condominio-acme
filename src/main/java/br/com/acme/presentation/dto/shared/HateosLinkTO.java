@@ -14,6 +14,8 @@ public abstract class HateosLinkTO {
     
     protected List<Link> links;
     
+    protected Long id;
+    
     public void addLink(Link link) {
         if(links == null) {
             links = new ArrayList<>();
