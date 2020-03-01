@@ -7,17 +7,15 @@ import javax.persistence.Table;
 
 import br.com.acme.domain.model.unidade.Unidade;
 import br.com.acme.domain.shared.Aviso;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Builder
-@EqualsAndHashCode(callSuper = false)
 @Table(name = "t_aviso_unidade")
+@NoArgsConstructor
 public class AvisoUnidade extends Aviso {
     private static final long serialVersionUID = 1L;
 

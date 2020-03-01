@@ -20,6 +20,14 @@ public abstract class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
+    
+    public BaseEntity() {
+    }
+
+    public BaseEntity(Long id) {
+        super();
+        this.id = id;
+    }
 
     @Override
     public int hashCode() {
