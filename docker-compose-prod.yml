@@ -1,0 +1,41 @@
+version: '3.3'
+
+services:
+
+  #############################################################
+  ######################### DATABASES #########################
+  #############################################################
+
+  db-condominio-acme:
+    container_name: db-condominio-acme
+    image: postgres:12
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: condominio-acme
+      POSTGRES_USER: condominio-acme
+      POSTGRES_PASSWORD: c0nd0m1n1o-4cm3
+      PGDATA: /tmp
+    volumes:
+      - ./docker/postgres/data-condominio-acme-prod:/var/lib/postgresql/data
+    networks: 
+      - backend
+  condominio-acme-service: 
+    container_name: condominio-acme-service
+    image: condominioacme:0.2.0
+    ports:
+      - "8080:8081"
+    environment:
+      DB_POS_URL: jdbc:postgresql://db-condominio-acme:5432/condominio-acme?createDatabaseIfNotExist=true
+      DB_POS_USERNAME: condominio-acme
+      DB_POS_PASSWORD: c0nd0m1n1o-4cm3
+    depends_on:
+      - db-condominio-acme
+    links:
+      - db-condominio-acme
+    networks: 
+      - backend
+networks:
+  backend:
+    driver: "bridge"
