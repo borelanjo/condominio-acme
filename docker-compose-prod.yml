@@ -15,23 +15,23 @@ services:
     environment:
       POSTGRES_DB: condominio-acme
       POSTGRES_USER: condominio-acme
-      POSTGRES_PASSWORD: condominio-acme
+      POSTGRES_PASSWORD: c0nd0m1n1o-4cm3
       PGDATA: /tmp
     volumes:
-      - ./docker/postgres/data-condominio-acme:/var/lib/postgresql/data
+      - ./docker/postgres/data-condominio-acme-prod:/var/lib/postgresql/data
     networks: 
       - backend
   condominio-acme-service: 
     container_name: condominio-acme-service
-    build:
-      context: .
-      dockerfile: Dockerfile-dev
+    image: condominioacme:0.2.0
     ports:
       - "8080:8081"
     environment:
       DB_POS_URL: jdbc:postgresql://db-condominio-acme:5432/condominio-acme?createDatabaseIfNotExist=true
       DB_POS_USERNAME: condominio-acme
-      DB_POS_PASSWORD: condominio-acme
+      DB_POS_PASSWORD: c0nd0m1n1o-4cm3
+    depends_on:
+      - db-condominio-acme
     links:
       - db-condominio-acme
     networks: 
